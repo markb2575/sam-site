@@ -6,14 +6,10 @@ import { Mail, PhoneIcon, CalendarDays, ArrowDown } from "lucide-react";
 
 export default function Hero() {
     const images = gallery.map((item) => item.photo);
+    const [imageFront, setImageFront] = useState(images[0]);
+    const [imageBack, setImageBack] = useState(images[1]);
+    const [fadeToggle, setFadeToggle] = useState(true);
     const [idx, setIdx] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIdx((prev) => (prev + 1) % images.length);
-        }, 3500);
-        return () => clearInterval(interval);
-    }, [images.length]);
 
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
@@ -21,15 +17,39 @@ export default function Hero() {
             el.scrollIntoView();
         }
     };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const nextIdx = (idx + 1) % images.length;
+
+            if (fadeToggle) {
+                setImageBack(images[nextIdx]);
+            } else {
+                setImageFront(images[nextIdx]);
+            }
+
+            setFadeToggle((prev) => !prev);
+            setIdx(nextIdx);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [idx, images, fadeToggle]);
 
     return (
         <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-none shadow-none">
             {/* Background image */}
             <img
-                src={images[idx]}
-                alt="Hero background"
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-                style={{ zIndex: 1 }}
+                src={imageFront}
+                alt="Hero"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                    fadeToggle ? "opacity-100" : "opacity-0"
+                }`}
+            />
+            <img
+                src={imageBack}
+                alt="Hero"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                    fadeToggle ? "opacity-0" : "opacity-100"
+                }`}
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/50 z-10" />
