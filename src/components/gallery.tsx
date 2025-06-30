@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { gallery } from "../lib/businessData";
 
 export default function Gallery() {
@@ -7,6 +7,18 @@ export default function Gallery() {
 
     const openModal = (idx: number) => setModalIdx(idx);
     const closeModal = () => setModalIdx(null);
+
+    // Prevent background scroll when modal is open
+    useEffect(() => {
+        if (modalIdx !== null) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [modalIdx]);
 
     return (
         <section className="pt-20 mx-5">
@@ -42,7 +54,7 @@ export default function Gallery() {
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="relative items-center max-w-1/2 p-0"
+                        className="relative items-center max-w-11/12 lg:max-w-1/2 p-0"
                     >
                         <button
                             onClick={closeModal}
