@@ -15,7 +15,7 @@ export default function Services() {
             <img
               src={service.image}
               alt={service.name}
-              className="absolute inset-0 w-full size-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-300" />
             <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">

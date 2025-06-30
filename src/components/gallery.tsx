@@ -9,26 +9,26 @@ export default function Gallery() {
     const closeModal = () => setModalIdx(null);
 
     return (
-        <section className="pt-20 mx-10">
+        <section className="pt-20 mx-5">
             <h2 className="text-5xl font-bold flex justify-center mb-20">
                 Gallery
             </h2>
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-2 sm:grid-cols-1 lg:grid-cols-3">
                 {gallery.map((item, idx) => (
                     <div
                         key={idx}
-                        className="relative w-full h-full rounded-xl cursor-pointer overflow-hidden shadow-md group"
+                        className="relative h-100 rounded-xl cursor-pointer overflow-hidden shadow-md group"
                         onClick={() => openModal(idx)}
                     >
                         {/* Image */}
                         <img
                             src={item.photo}
-                            className="w-full h-full object-cover block transition duration-300 group-hover:brightness-50"
+                            className="size-full object-cover block transition duration-300 group-hover:brightness-50"
                         />
 
                         {/* Description Overlay */}
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <p className="text-white text-2xl font-normal tracking-wide text-center px-4">
+                            <p className="text-white text-xl font-normal tracking-wide text-center px-4">
                                 {item.description}
                             </p>
                         </div>
@@ -60,7 +60,7 @@ export default function Gallery() {
                             className="w-full h-full object-contain mt-8"
                         />
                         {gallery[modalIdx].description && (
-                            <p className="mt-6 text-white flex justify-center text-2xl font-normal tracking-wide">
+                            <p className="mt-6 text-white flex justify-center text-xl font-normal tracking-wide">
                                 {gallery[modalIdx].description}
                             </p>
                         )}
