@@ -42,7 +42,7 @@ export default function Gallery() {
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="relative items-center max-w-1/2 p-0 shadow-2xl"
+                        className="relative items-center max-w-1/2 p-0"
                     >
                         <button
                             onClick={closeModal}
