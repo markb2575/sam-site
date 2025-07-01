@@ -55,12 +55,13 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/50 z-10" />
             {/* Content */}
             <div className="relative z-20 flex flex-col items-center justify-center text-center text-white px-4 gap-10">
-                <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow mb-2 mt-8 md:mt-0">
+                {/* <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow mb-2 mt-8 md:mt-0">
                     {companyInfo.name}
                 </h1>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-200 mb-6 drop-shadow">
                     {companyInfo.type}
-                </h2>
+                </h2> */}
+                <img src="/logo.PNG" alt="Logo" className="w-100 h-100 mb-4" />
                 <div className="flex flex-col md:flex-row gap-4 mb-6">
                     <a
                         className="flex items-center gap-2 text-lg hover:underline"
