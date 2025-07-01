@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { gallery } from "../lib/businessData";
-import { companyInfo, contactInfo } from "../lib/businessData";
+import { contactInfo } from "../lib/businessData";
 import { Mail, PhoneIcon, CalendarDays, ArrowDown } from "lucide-react";
 
 export default function Hero() {
