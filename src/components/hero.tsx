@@ -14,7 +14,11 @@ export default function Hero() {
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            el.scrollIntoView();
+            if (typeof window !== "undefined" && window.innerWidth >= 768) {
+                el.scrollIntoView({ behavior: "smooth" });
+            } else {
+                el.scrollIntoView();
+            }
         }
     };
     useEffect(() => {
