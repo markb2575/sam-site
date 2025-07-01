@@ -39,7 +39,7 @@ export default function Hero() {
     }, [idx, images, fadeToggle]);
 
     return (
-        <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-none shadow-none">
+        <section className="relative min-h-screen max-h-screen w-full flex items-center justify-center overflow-hidden rounded-none shadow-none">
             {/* Background image */}
             <img
                 src={imageFront}
@@ -65,8 +65,8 @@ export default function Hero() {
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-200 mb-6 drop-shadow">
                     {companyInfo.type}
                 </h2> */}
-                <img src="/logo.PNG" alt="Logo" className="w-100 h-100 mb-4" />
-                <div className="flex flex-col md:flex-row gap-4 mb-6">
+                <img src="/logo.PNG" alt="Logo" className="size-64 lg:size-96" />
+                <div className="flex flex-col md:flex-row gap-3">
                     <a
                         className="flex items-center gap-2 text-lg hover:underline"
                         href={`mailto:${contactInfo.email}`}
@@ -103,8 +103,8 @@ export default function Hero() {
                     </button>
                 </div>
             </div>
-            {/* Animated arrows at the bottom center */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30">
+
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30">
                 <div className="flex gap-5 dark:text-neutral-300 text-neutral-700 animate-bounce">
                     <ArrowDown />
                     <ArrowDown />
