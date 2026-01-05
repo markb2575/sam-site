@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { gallery } from "../lib/businessData";
 
 export default function Gallery() {
@@ -33,9 +34,12 @@ export default function Gallery() {
                         onClick={() => openModal(idx)}
                     >
                         {/* Image */}
-                        <img
+                        <Image
                             src={item.photo}
+                            alt={item.description || `Gallery photo ${idx + 1}`}
                             className="size-full object-cover block transition duration-300 group-hover:brightness-50"
+                            width={1000}
+                            height={1000}
                         />
 
                         {/* Description Overlay */}
@@ -50,32 +54,38 @@ export default function Gallery() {
             {modalIdx !== null && (
                 <div
                     onClick={closeModal}
-                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
                 >
                     <div
-                        onClick={(e) => e.stopPropagation()}
-                        className="relative items-center max-w-11/12 lg:max-w-1/2 p-0"
+                    onClick={(e) => e.stopPropagation()}
+                    className="relative w-full max-w-3xl max-h-full flex flex-col"
                     >
-                        <button
-                            onClick={closeModal}
-                            className="absolute top-12 right-4 bg-black/60 text-white border-0 text-3xl cursor-pointer rounded-full w-10 h-10 flex items-center justify-center z-10"
-                            aria-label="Close"
-                        >
-                            &times;
-                        </button>
-                        <img
-                            src={gallery[modalIdx].photo}
-                            alt={
-                                gallery[modalIdx].description ||
-                                `Gallery photo ${modalIdx + 1}`
-                            }
-                            className="w-full h-full object-contain mt-8"
+                    <button
+                        onClick={closeModal}
+                        className="absolute top-4 right-4 bg-black/60 text-white border-0 text-3xl cursor-pointer rounded-full w-10 h-10 flex items-center justify-center z-10"
+                        aria-label="Close"
+                    >
+                        &times;
+                    </button>
+
+                    <div className="w-full flex justify-center">
+                        <Image
+                        src={gallery[modalIdx].photo}
+                        alt={
+                            gallery[modalIdx].description ||
+                            `Gallery photo ${modalIdx + 1}`
+                        }
+                        width={1000} // original image width
+                        height={1000} // original image height
+                        className="max-w-full max-h-[80vh] object-contain"
                         />
-                        {gallery[modalIdx].description && (
-                            <p className="mt-6 text-white flex justify-center text-xl font-normal tracking-wide">
-                                {gallery[modalIdx].description}
-                            </p>
-                        )}
+                    </div>
+
+                    {gallery[modalIdx].description && (
+                        <p className="mt-4 text-white text-center text-xl font-normal tracking-wide">
+                        {gallery[modalIdx].description}
+                        </p>
+                    )}
                     </div>
                 </div>
             )}
