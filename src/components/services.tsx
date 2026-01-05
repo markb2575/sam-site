@@ -13,7 +13,7 @@ export default function Services() {
             className="relative h-80 rounded-2xl shadow-lg overflow-hidden group flex items-center justify-center"
           >
             <img
-              src={service.image}
+              src={service.image === "" ? undefined : service.image}
               alt={service.name}
               className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
