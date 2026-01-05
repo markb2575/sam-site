@@ -18,7 +18,6 @@ export const gallery: GalleryItem[] = [
   { photo: "/gallery/closets-2.jpg" },
   { photo: "/gallery/closets-3.jpg" },
   { photo: "/gallery/closets-4.jpg" },
-  { photo: "/gallery/closets-5.jpg" },
 
   // countertops
   { photo: "/gallery/countertops-0.jpg" },
