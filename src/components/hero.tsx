@@ -6,10 +6,10 @@ import { Mail, PhoneIcon, CalendarDays, ArrowDown } from "lucide-react";
 
 export default function Hero() {
     const images = gallery.map((item) => item.photo);
-    const [imageFront, setImageFront] = useState(images[0]);
-    const [imageBack, setImageBack] = useState(images[1]);
-    const [fadeToggle, setFadeToggle] = useState(true);
-    const [idx, setIdx] = useState(0);
+    // const [imageFront, setImageFront] = useState(images[0]);
+    // const [imageBack, setImageBack] = useState(images[1]);
+    // const [fadeToggle, setFadeToggle] = useState(true);
+    // const [idx, setIdx] = useState(0);
 
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
@@ -21,27 +21,27 @@ export default function Hero() {
             }
         }
     };
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const nextIdx = (idx + 1) % images.length;
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         const nextIdx = (idx + 1) % images.length;
 
-            if (fadeToggle) {
-                setImageBack(images[nextIdx]);
-            } else {
-                setImageFront(images[nextIdx]);
-            }
+    //         if (fadeToggle) {
+    //             setImageBack(images[nextIdx]);
+    //         } else {
+    //             setImageFront(images[nextIdx]);
+    //         }
 
-            setFadeToggle((prev) => !prev);
-            setIdx(nextIdx);
-        }, 5000);
+    //         setFadeToggle((prev) => !prev);
+    //         setIdx(nextIdx);
+    //     }, 5000);
 
-        return () => clearInterval(interval);
-    }, [idx, images, fadeToggle]);
+    //     return () => clearInterval(interval);
+    // }, [idx, images, fadeToggle]);
 
     return (
         <section className="relative min-h-screen max-h-screen w-full flex items-center justify-center overflow-hidden rounded-none shadow-none">
             {/* Background image */}
-            <img
+            {/* <img
                 src={imageFront}
                 alt="Hero"
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
@@ -54,6 +54,11 @@ export default function Hero() {
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                     fadeToggle ? "opacity-0" : "opacity-100"
                 }`}
+            /> */}
+            <img
+                src={gallery[12].photo}
+                alt="Hero"
+                className={`absolute inset-0 w-full h-full object-cover`}
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/50 z-10" />
