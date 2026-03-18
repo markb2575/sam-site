@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { gallery } from "../lib/businessData";
 import { contactInfo } from "../lib/businessData";
 import { Mail, PhoneIcon, CalendarDays, ArrowDown } from "lucide-react";
 
 export default function Hero() {
-    const images = gallery.map((item) => item.photo);
+    // const images = gallery.map((item) => item.photo);
     // const [imageFront, setImageFront] = useState(images[0]);
     // const [imageBack, setImageBack] = useState(images[1]);
     // const [fadeToggle, setFadeToggle] = useState(true);
